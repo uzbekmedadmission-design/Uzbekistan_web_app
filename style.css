@@ -192,6 +192,28 @@ p {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
+
+/* Add this to your existing hero styles */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-image {
+    order: -1; /* This moves the image above the text on mobile */
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        flex-direction: row;
+    }
+    .hero-image {
+        order: 1; /* Reset order for desktop */
+        margin-bottom: 0;
+    }
+}
+
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -200,6 +222,20 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.hero-title {
+    text-align: left; /* Or center, depending on your preference */
+}
+
+.highlight {
+    display: inline-block; /* This will make the highlight span behave like a block */
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center; /* Center the text within the highlight */
+    width: 100%; /* Ensure it takes full width */
 }
 
 .hero-title {
