@@ -1,0 +1,45 @@
+LOGO REQUIREMENTS FOR UMA WEBSITE
+===================================
+
+File Name: logo.png
+Recommended Size: 40x40 pixels (for navigation bar)
+Alternative Sizes: 
+- 80x80px (for high-resolution displays)
+- 120x120px (for footer or larger displays)
+
+Format: PNG with transparent background preferred
+Color Scheme: Should match the website's color theme:
+- Primary Blue: #2563eb
+- Secondary Green: #059669
+- White/Dark text combinations
+
+Design Suggestions:
+1. Text-based logo with "UMA" letters
+2. Medical symbol (stethoscope, medical cross, graduation cap)
+3. Combination of text + medical/education icon
+4. Simple, clean design that works at small sizes
+
+Brand Colors to Consider:
+- Blue tones (trust, professionalism)
+- Green tones (growth, health)
+- Red accent (urgency, action)
+
+Logo Placement in Website:
+- Navigation header (40x40px)
+- Footer (40x40px)
+- Favicon (16x16px, 32x32px)
+
+Instructions:
+1. Create your logo design
+2. Save as "logo.png" 
+3. Replace this file in the website directory
+4. Test the logo appears correctly on all pages
+
+Note: The website is currently set up with a placeholder reference to "logo.png" in all HTML files. Simply adding your logo file with this exact name will automatically display it across the site.
+
+For best results, ensure the logo:
+- Is clearly visible at small sizes
+- Works on both light and dark backgrounds
+- Represents the medical education brand
+- Is professionally designed
+- Loads quickly (optimized file size)
