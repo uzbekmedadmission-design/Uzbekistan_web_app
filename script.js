@@ -380,15 +380,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Lazy Loading for Images
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
+    const images = document.querySelectorAll('img[data-src]');
     
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.3s ease';
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
                 
+                // Apply fade-in effect only after image is loaded
                 img.onload = function() {
                     this.style.opacity = '1';
                 };
@@ -396,9 +397,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(img);
             }
         });
+    }, {
+        rootMargin: '200px 0px' // Load images 200px before they enter viewport
     });
 
     images.forEach(img => {
+        // Set initial opacity to 0 for smooth transition
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
         imageObserver.observe(img);
     });
 });
