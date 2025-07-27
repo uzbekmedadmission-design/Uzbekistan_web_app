@@ -806,6 +806,42 @@ section {
 }
 
 /* University Page Styles */
+
+/* University Overview Section */
+.overview-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.overview-image {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.university-campus-img {
+    width: 100%;
+    max-width: 500px; /* Adjust this value as needed */
+    height: auto;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .overview-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+    
+    .university-campus-img {
+        max-width: 100%; /* Allows image to be larger on desktop */
+    }
+}
+
 .university-overview {
     padding: 80px 0;
 }
