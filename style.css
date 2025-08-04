@@ -16,6 +16,83 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Add to your style.css */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--white);
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Vertical Timeline Layout */
+.process-timeline {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.process-step {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-left: 100px;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 49px;
+    top: 80px;
+    bottom: -3rem;
+    width: 2px;
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.step-content {
+    padding-top: 1rem;
+}
+
+.step-content h3 {
+    margin-bottom: 1rem;
+}
+
+.step-content ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.step-content li {
+    margin-bottom: 0.5rem;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -1159,7 +1236,7 @@ section {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -1382,5 +1459,726 @@ html {
     body {
         font-size: 12pt;
         line-height: 1.4;
+    }
+}
+
+
+
+
+
+/* Student Support Page Styles */
+.support-overview {
+    padding: 80px 0;
+}
+
+.support-overview .overview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.support-overview .overview-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.support-services {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.support-services .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.support-services .service-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.support-services .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.support-services .service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.support-process {
+    padding: 80px 0;
+}
+
+.support-process .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.support-process .process-step {
+    text-align: center;
+    position: relative;
+}
+
+.support-process .process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .support-process .process-step:not(:last-child)::after {
+        display: block;
+    }
+}
+
+.support-process .step-number {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 auto 1rem;
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-md);
+}
+
+.indian-community {
+    background: var(--white);
+    padding: 80px 0;
+}
+
+.indian-community .community-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.indian-community .community-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.community-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.community-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.community-feature i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.testimonials {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testimonial-content {
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.author-info p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* Admission Process Page Specific Styles */
+.eligibility-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.eligibility-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.eligibility-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.process-steps-section {
+    padding: 80px 0;
+}
+
+.process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 80px;
+    bottom: -3rem;
+    width: 2px;
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.step-content {
+    padding-top: 1rem;
+}
+
+.step-content ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.step-content li {
+    margin-bottom: 0.5rem;
+}
+
+.support-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.support-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.support-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.support-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.support-feature i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.support-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.document-checklist {
+    padding: 80px 0;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.checklist-item i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+
+/* Scholarship Page Specific Styles */
+.scholarship-overview {
+    padding: 80px 0;
+}
+
+.scholarship-overview .overview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.scholarship-overview .overview-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.key-points {
+    margin-top: 2rem;
+}
+
+.key-point {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.key-point i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.scholarship-types {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.scholarship-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.scholarship-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.application-process {
+    padding: 80px 0;
+}
+
+.process-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 80px;
+    bottom: -3rem;
+    width: 2px;
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+.required-documents {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.documents-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.document-item i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+
+.scholarship-tips {
+    padding: 80px 0;
+}
+
+.scholarship-tips .tips-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.scholarship-tips .tips-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.scholarship-tips ul {
+    list-style: none;
+}
+
+.scholarship-tips li {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.scholarship-tips li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.scholarship-tips li strong {
+    color: var(--text-dark);
+}
+
+/* MBBS in Uzbekistan Page Specific Styles */
+.university-overview {
+    padding: 80px 0;
+}
+
+.university-overview .overview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.university-overview .overview-features {
+    margin-top: 2rem;
+}
+
+.university-overview .overview-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.university-overview .overview-feature i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+
+.benefits-section {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.quick-facts {
+    padding: 80px 0;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.fact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.fact-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.cultural-life {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.cultural-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.cultural-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.cultural-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cultural-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.cultural-feature i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.next-steps {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.next-steps .steps-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .support-overview .overview-content,
+    .indian-community .community-content,
+    .scholarship-overview .overview-content,
+    .scholarship-tips .tips-content,
+    .cultural-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-process .process-step:not(:last-child)::after {
+        display: none;
+    }
+    
+    .process-step,
+    .support-process .process-step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number,
+    .support-process .step-number {
+        margin-bottom: 1.5rem;
+    }
+    
+    .community-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-features {
+        grid-template-columns: 1fr;
     }
 }

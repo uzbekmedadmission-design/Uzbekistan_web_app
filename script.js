@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Contact Form Handling
+// Update the contact form handling in script.js
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -110,16 +110,37 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<span class="loading"></span> Sending...';
             submitBtn.disabled = true;
 
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                alert('Thank you for your message! We will contact you soon.');
-                contactForm.reset();
+            try {
+                // Submit to Formspree
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    alert('Thank you for your message! We will contact you soon.');
+                    contactForm.reset();
+                } else {
+                    // Show error message
+                    const errorData = await response.json();
+                    if (errorData.errors) {
+                        alert('Error: ' + errorData.errors.map(error => error.message).join(', '));
+                    } else {
+                        alert('There was a problem submitting your form. Please try again.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form. Please try again.');
+            } finally {
+                // Reset button state
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
-
-            // In a real application, you would send the data to your server
-            console.log('Form submitted:', formObject);
+            }
         });
     }
 });
@@ -575,4 +596,235 @@ document.addEventListener('DOMContentLoaded', function() {
     // initializeAnalytics();
     // initializeChatWidget();
     // initializeNotifications();
+});
+
+
+
+// Admission Process Page Specific JS
+document.addEventListener('DOMContentLoaded', function() {
+    // Eligibility card animation
+    const eligibilityCard = document.querySelector('.eligibility-card');
+    if (eligibilityCard) {
+        eligibilityCard.classList.add('fade-in');
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 }).observe(eligibilityCard);
+    }
+
+    // Process steps animation
+    const processSteps = document.querySelectorAll('.process-step');
+    if (processSteps.length > 0) {
+        processSteps.forEach((step, index) => {
+            step.classList.add('fade-in');
+            step.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(step);
+        });
+    }
+
+    // Document checklist items animation
+    const checklistItems = document.querySelectorAll('.checklist-item');
+    if (checklistItems.length > 0) {
+        checklistItems.forEach((item, index) => {
+            item.classList.add('fade-in');
+            item.style.transitionDelay = `${index * 0.05}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(item);
+        });
+    }
+});
+
+// MBBS in Uzbekistan Page Specific JS
+document.addEventListener('DOMContentLoaded', function() {
+    // Benefit cards animation
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    if (benefitCards.length > 0) {
+        benefitCards.forEach((card, index) => {
+            card.classList.add('fade-in');
+            card.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(card);
+        });
+    }
+
+    // Quick facts animation
+    const factCards = document.querySelectorAll('.fact-card');
+    if (factCards.length > 0) {
+        factCards.forEach((card, index) => {
+            card.classList.add('fade-in');
+            card.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(card);
+        });
+    }
+
+    // Cultural features animation
+    const culturalFeatures = document.querySelectorAll('.cultural-feature');
+    if (culturalFeatures.length > 0) {
+        culturalFeatures.forEach((feature, index) => {
+            feature.classList.add('fade-in');
+            feature.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(feature);
+        });
+    }
+});
+
+// Scholarship Page Specific JS
+document.addEventListener('DOMContentLoaded', function() {
+    // Scholarship cards animation
+    const scholarshipCards = document.querySelectorAll('.scholarship-card');
+    if (scholarshipCards.length > 0) {
+        scholarshipCards.forEach((card, index) => {
+            card.classList.add('fade-in');
+            card.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(card);
+        });
+    }
+
+    // Scholarship tips list items animation
+    const scholarshipTips = document.querySelectorAll('.scholarship-tips li');
+    if (scholarshipTips.length > 0) {
+        scholarshipTips.forEach((tip, index) => {
+            tip.classList.add('fade-in');
+            tip.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(tip);
+        });
+    }
+
+    // Document items animation
+    const documentItems = document.querySelectorAll('.document-item');
+    if (documentItems.length > 0) {
+        documentItems.forEach((item, index) => {
+            item.classList.add('fade-in');
+            item.style.transitionDelay = `${index * 0.05}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(item);
+        });
+    }
+});
+
+// Student Support Page Specific JS
+document.addEventListener('DOMContentLoaded', function() {
+    // Service cards animation
+    const serviceCards = document.querySelectorAll('.support-services .service-card');
+    if (serviceCards.length > 0) {
+        serviceCards.forEach((card, index) => {
+            card.classList.add('fade-in');
+            card.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(card);
+        });
+    }
+
+    // Process steps animation
+    const supportProcessSteps = document.querySelectorAll('.support-process .process-step');
+    if (supportProcessSteps.length > 0) {
+        supportProcessSteps.forEach((step, index) => {
+            step.classList.add('fade-in');
+            step.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(step);
+        });
+    }
+
+    // Community features animation
+    const communityFeatures = document.querySelectorAll('.community-feature');
+    if (communityFeatures.length > 0) {
+        communityFeatures.forEach((feature, index) => {
+            feature.classList.add('fade-in');
+            feature.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(feature);
+        });
+    }
+
+    // Testimonial cards animation
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    if (testimonialCards.length > 0) {
+        testimonialCards.forEach((card, index) => {
+            card.classList.add('fade-in');
+            card.style.transitionDelay = `${index * 0.1}s`;
+            
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 }).observe(card);
+        });
+    }
 });
