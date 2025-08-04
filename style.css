@@ -1,6 +1,6 @@
 /* CSS Variables for Medical/Education Theme */
 :root {
-    --primary-color: #2563eb;
+    --primary-color: #1e7f8a;
     --secondary-color: #059669;
     --accent-color: #dc2626;
     --text-dark: #1f2937;
@@ -8,7 +8,7 @@
     --white: #ffffff;
     --light-bg: #f9fafb;
     --border-color: #e5e7eb;
-    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --gradient-primary: linear-gradient(135deg, #1e7f8a 0%, #1e7f8a 100%);
     --gradient-secondary: linear-gradient(135deg, #059669 0%, #047857 100%);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
